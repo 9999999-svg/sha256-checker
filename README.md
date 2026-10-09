@@ -4,7 +4,9 @@
 
 ## 下载和 GUI
 
-从 [Releases](https://github.com/9999999-svg/sha256-checker/releases) 下载 `SHA256Checker.exe`，双击运行。选择校验清单，文件目录为空时自动使用清单所在目录，点击“开始校验”。核对完成后可以导出 CSV；已有报告不会被覆盖。
+[下载 Windows EXE](https://github.com/9999999-svg/sha256-checker/releases/download/v1.0.0/SHA256Checker.exe) · [下载 Python 源码 ZIP](https://github.com/9999999-svg/sha256-checker/archive/refs/heads/main.zip) · [查看源码](sha256_checker.py)
+
+双击运行。选择校验清单，文件目录为空时自动使用清单所在目录，点击“开始校验”。核对完成后可以导出 CSV；已有报告不会被覆盖。
 
 把需要核对的发行文件和对应 `SHA256SUMS.txt` 放到同一个目录即可。例如可以检查本账号发布的免费工具下载包。GUI 预览最多 1000 项，CSV 包含全部结果。
 
@@ -32,14 +34,12 @@ SHA256Checker.exe --help
 
 ## 构建
 
-本次环境为 Windows x64、Python 3.14.6、PyInstaller 6.21.0。依赖大小与卸载见 [DEPENDENCIES.md](DEPENDENCIES.md)，实际检查见 [VALIDATION.md](VALIDATION.md)。
+构建环境为 Windows x64、Python 3.14.6、PyInstaller 6.21.0。依赖大小与卸载见 [DEPENDENCIES.md](DEPENDENCIES.md)。
 
 ```powershell
 python -m venv .venv
 .venv\Scripts\python.exe -m pip install -r requirements-build.txt
-.venv\Scripts\python.exe test_sha256_checker.py
 .venv\Scripts\python.exe build.py
-.venv\Scripts\python.exe test_sha256_checker.py --exe dist\SHA256Checker.exe
 ```
 
 EXE 未签名。自有代码采用 MIT，第三方许可保留于 `licenses/` 和 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。
